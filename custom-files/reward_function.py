@@ -16,8 +16,9 @@ def reward_function(params):
     ABS_STEERING_THRESHOLD = 20
 
     # Penalize reward if the car is steering too much
+    steeringPenalty = 1
     if steering > ABS_STEERING_THRESHOLD:
-        steeringPenalty *= 1e-1000
+        steeringPenalty = 1e-1000
     
     # encourage more progress
     progressReward = progress * 100
@@ -28,6 +29,6 @@ def reward_function(params):
         offtrackPenalty = 1e-100000000000000000000000
 
     # calculate overall reward
-    reward = speedReward * progressReward * steeringPenalty * offTrackPenalty
+    reward = speedReward * progressReward * steeringPenalty * offtrackPenalty
 
     return float(reward)
