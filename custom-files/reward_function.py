@@ -11,6 +11,8 @@ def reward_function(params):
     steering_angle = params['steering_angle']
     progress = params['progress']
     steps = params['steps']
+
+    reward = 0
     
     if is_reversed:
         reward += 1e-500000
